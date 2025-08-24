@@ -1,16 +1,16 @@
 # Website Highlight Saver Chrome Extension
 
-A powerful Chrome extension that allows users to highlight text on any webpage, save highlights locally, and get AI-powered summaries using OpenAI's API.
+A powerful Chrome extension that allows users to highlight text on any webpage, save highlights locally, and get AI-powered summaries using Google Gemini.
 
 ## Features
 
 ✨ **Text Highlighting**: Select any text on a webpage and save it with a simple popup
 📚 **Local Storage**: All highlights are saved locally in your browser
 🔍 **Search & Filter**: Search through your saved highlights
-🤖 **AI Summarization**: Get concise summaries of your highlights using OpenAI GPT
+🤖 **AI Summarization**: Get concise summaries of your highlights using Google Gemini (API key required)
 🗑️ **Easy Management**: Delete individual highlights or clear all at once
 🔗 **Quick Access**: Visit the original page where you saved a highlight
-📱 **Responsive Design**: Clean, modern interface that works seamlessly
+📱 **Modern UI**: Clean, responsive popup interface
 
 ## Installation
 
@@ -58,7 +58,7 @@ A powerful Chrome extension that allows users to highlight text on any webpage, 
 ### AI Summarization
 
 1. Click the "🔑 API Key" button in the popup
-2. Enter your OpenAI API key (get one from https://platform.openai.com/api-keys)
+2. Enter your Google Gemini API key (get one from https://aistudio.google.com/app/apikey)
 3. Use "🤖 Summarize All" to get a summary of all highlights
 4. Or click "🤖 Summarize" on individual highlights
 
@@ -73,33 +73,34 @@ A powerful Chrome extension that allows users to highlight text on any webpage, 
 
 ```
 chrome-extension/
-├── manifest.json          # Extension configuration
-├── popup.html             # Extension popup interface
-├── popup.js              # React-based popup logic (compiled)
-├── popup-src.js          # Source React code for popup
-├── content.js            # Content script for webpage interaction
-├── content.css           # Styles for webpage elements
-├── background.js         # Service worker for background tasks
-├── package.json          # Node.js dependencies
-└── README.md            # This file
+├── manifest.json       # Extension configuration
+├── popup.html          # Extension popup interface
+├── popup.js            # Popup logic (vanilla JS)
+├── content.js          # Content script for webpage interaction
+├── content.css         # Styles for content script elements
+├── background.js       # Service worker for background tasks
+├── icons.json          # Icon references
+├── package.json        # Metadata
+├── dev-setup.sh        # Development setup script
+└── README.md           # This file
 ```
 
 ## Technical Details
 
 ### Technologies Used
 
-- **React 18**: For the popup interface
+- **Vanilla JavaScript**: Used for all scripts
 - **Chrome Extensions Manifest V3**: Latest extension standard
 - **Chrome Storage API**: For local data persistence
-- **OpenAI API**: For AI-powered summarization
-- **Vanilla JavaScript**: For content scripts and background tasks
+- **Google Gemini API**: For AI-powered summarization
+- **Responsive UI**: Modern CSS for popup and content script
 
 ### Key Features Implementation
 
 1. **Text Selection Detection**: Uses `window.getSelection()` to detect selected text
 2. **Local Storage**: Chrome's `chrome.storage.local` API for persistent storage
 3. **Cross-Page Highlighting**: Content script injection on all pages
-4. **AI Integration**: Direct API calls to OpenAI's GPT models
+4. **AI Integration**: Direct API calls to Google Gemini
 5. **Responsive UI**: CSS Grid and Flexbox for adaptive layouts
 
 ### Permissions Explained
@@ -111,29 +112,19 @@ chrome-extension/
 
 ## API Configuration
 
-To use the AI summarization feature:
+To use AI summarization:
 
-1. Get an OpenAI API key from https://platform.openai.com/api-keys
+1. Get a Google Gemini API key from https://aistudio.google.com/app/apikey
 2. Click the "🔑 API Key" button in the extension popup
-3. Enter your API key (it's stored locally and encrypted)
+3. Enter your API key (stored locally)
 4. Start using the summarization features
-
-**Note**: API usage will incur costs based on OpenAI's pricing. The extension uses GPT-3.5-turbo for cost-effectiveness.
 
 ## Development
 
-### Setup Development Environment
+### Development
 
-```bash
-npm install
-npm run dev  # Watches for changes and rebuilds
-```
-
-### Building for Production
-
-```bash
-npm run build
-```
+- No build process required (vanilla JS)
+- For development setup, see `dev-setup.sh` for instructions.
 
 ### Testing
 
@@ -146,7 +137,7 @@ npm run build
 
 - All highlights are stored locally in your browser
 - No data is sent to external servers except for AI summarization
-- OpenAI API key is stored locally and never transmitted to other services
+-- Your API key is stored locally and never transmitted elsewhere
 - The extension only accesses webpage content when you interact with it
 
 ## Troubleshooting
