@@ -1,0 +1,39 @@
+{
+  "manifest_version": 3,
+  "name": "Website Highlight Saver",
+  "version": "1.0.0",
+  "description": "Save and manage highlights from any webpage with AI summarization",
+  "icons": {
+    "16": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTIgMTJWNEg4VjJIMlYxMkg0VjE0SDEwVjEySDE0VjRIOFYySDEwVjBINFYySDE0VjEySDE2VjE0SDhWMTZIMlYxNEgwVjEySDJaIiBmaWxsPSIjRkZFQjNCIi8+CjxwYXRoIGQ9Ik0zIDVINUw2IDhIM0w0IDExSDExTDEwIDhIMTNMOCA1SDNaIiBmaWxsPSIjRkJCNjE0Ii8+Cjwvc3ZnPgo=",
+    "48": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDgiIGhlaWdodD0iNDgiIHZpZXdCb3g9IjAgMCA0OCA0OCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTYgMzZWMTJIMjRWNkg2VjM2SDEyVjQySDMwVjM2SDQyVjEySDI0VjZIMzBWMEgxMlY2SDQyVjM2SDQ4VjQySDI0VjQ4SDZWNDJIMFYzNkg2WiIgZmlsbD0iI0ZGRUIzQiIvPgo8cGF0aCBkPSJNOSAxNUgxNUwxOCAyNEg5TDEyIDMzSDMzTDMwIDI0SDM5TDI0IDE1SDlaIiBmaWxsPSIjRkJCNjE0Ii8+Cjwvc3ZnPgo=",
+    "128": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTI4IiBoZWlnaHQ9IjEyOCIgdmlld0JveD0iMCAwIDEyOCAxMjgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik0xNiA5NlYzMkg2NFYxNkgxNlY5NkgzMlYxMTJIODBWOTZIMTEyVjMySDY0VjE2SDgwVjBIMzJWMTZIMTEyVjk2SDEyOFYxMTJINjRWMTI4SDE2VjExMkgwVjk2SDE2WiIgZmlsbD0iI0ZGRUIzQiIvPgo8cGF0aCBkPSJNMjQgNDBINDBMNDggNjRIMjRMMzIgODhIODhMODAgNjRIMTA0TDY0IDQwSDI0WiIgZmlsbD0iI0ZCQjYxNCIvPgo8L3N2Zz4K"
+  },
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "*://*/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Website Highlight Saver"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*/*"],
+      "js": ["content.js"],
+      "css": ["content.css"]
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["popup.html", "popup.js"],
+      "matches": ["*://*/*"]
+    }
+  ]
+}

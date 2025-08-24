@@ -1,0 +1,11 @@
+{
+  "name": "website-highlight-saver",
+  "version": "1.0.0",
+  "description": "Chrome extension to save and manage webpage highlights with AI summarization",
+  "scripts": {
+    "dev": "echo 'No build process needed for vanilla JS'"
+  },
+  "keywords": ["chrome-extension", "highlights", "vanilla-js", "ai", "summarization"],
+  "author": "Your Name",
+  "license": "MIT"
+}
